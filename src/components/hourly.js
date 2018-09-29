@@ -7,7 +7,7 @@ const Hourly = ({ day }) => {
   return (
     <div>
       {day.map(hour => {
-        return <Details hour={hour}/>;
+        return <Details key={hour.dt} hour={hour}/>;
       })}
     </div>
   );
