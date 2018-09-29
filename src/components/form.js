@@ -2,9 +2,9 @@ import React from "react";
 
 const Form = ({ getWeather }) => (
 	<form onSubmit={getWeather}>
-    <label for="city">City</label>
+    <label htmlFor="city">City</label>
 		<input type="text" id="city" name="city"/>
-    <label for="city">Country</label>
+    <label htmlFor="city">Country</label>
 		<input type="text" id="country" name="country"/>
 		<input type="submit" value="search"/>
 	</form>
