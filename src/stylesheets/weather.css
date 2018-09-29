@@ -1,0 +1,9 @@
+.weather-main {
+  background-color: lightblue;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+/* .weather-main > div > div{
+  display: none;
+} */
