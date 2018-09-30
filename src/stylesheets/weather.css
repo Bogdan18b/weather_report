@@ -2,8 +2,53 @@
   background-color: lightblue;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  margin: 10px;
+  padding: 10px;
 }
 
-/* .weather-main > div > div{
-  display: none;
-} */
+.hourly {
+  position: absolute;
+  font-size: 20px;
+  background-color: aquamarine;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px;
+  margin: 10px;
+  grid-gap: 10px;
+}
+
+.hourly-update {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
+
+.description {
+  grid-column-start: 2;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.description > li:last-child {
+  margin-top: 7px;
+}
+
+.daily-main {
+  font-size: 20px;
+}
+
+.weather-error {
+  text-align: center;
+  font-size: 25px;
+  color: red;
+  padding: 5px;
+  margin: 5px;
+}
+
+.forecast-image {
+  width: 30%;
+}
