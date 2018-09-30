@@ -1,12 +1,13 @@
 import React from "react";
+import '../stylesheets/form.css';
 
 const Form = ({ getWeather }) => (
-	<form onSubmit={getWeather}>
-    <label htmlFor="city">City</label>
-		<input type="text" id="city" name="city"/>
-    <label htmlFor="city">Country</label>
-		<input type="text" id="country" name="country"/>
-		<input type="submit" value="search"/>
+	<form className="form-main" onSubmit={getWeather}>
+		<input className="form-input" type="text" placeholder="city" name="city"/>
+		<br/>
+		<input className="form-input" type="text" placeholder="country" name="country"/>
+		<br/>
+		<input className="form-button" type="submit" value="search"/>
 	</form>
 );
 
