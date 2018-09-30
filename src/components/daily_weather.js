@@ -43,6 +43,7 @@ class DailyWeather extends Component {
         <h3>{ Math.round(maxTemp) }˚F</h3>
         <h3><img className="forecast-image"
           src={forecast} alt=""/></h3>
+        <p>details</p>
         { this.state.display ? <Hourly day={this.props.day}/> : <p></p>}
       </div>
     );

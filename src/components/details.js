@@ -15,14 +15,18 @@ const updateTime = time => {
 const Details = ({ hour }) => {
   if (!hour) return <p></p>;
   debugger
+  let sign = hour.weather[0].icon;
   return (
-    <ul className="hourly-update">
+    <ul
+      className="hourly-update">
       <li>Time: {updateTime(hour.dt_txt.slice(11))}</li>
       <li>Description: {hour.weather[0].description}</li>
       <li>Temperature: {Math.round(hour.main.temp)}˚F</li>
       <li>Humidity: {Math.round(hour.main.humidity)}%</li>
       <li>Pressure: {Math.round(hour.main.pressure)}&nbsp;hPa</li>
       <li>Wind: {Math.round(hour.wind.speed)}&nbsp;mph</li>
+      <li><img className="hourly-update-pic" 
+        src={`http://openweathermap.org/img/w/${sign}.png`} alt=""/></li>
     </ul>
   );
 };

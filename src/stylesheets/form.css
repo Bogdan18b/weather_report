@@ -7,12 +7,12 @@
 .form-input {
   border: 1px solid lightgray;
   border-radius: 20px;
-  background-color: azure;
+  background-color: lightskyblue;
   margin: 5px;
   font-size: 20px;
   padding: 5px;
-  color: green;
 }
+
 .form-button {
   border: 1px solid black;
   border-radius: 20px;
@@ -21,8 +21,4 @@
   margin: 5px;
   background-color: blue;
   color: azure;
-}
-
-::placeholder {
-  color: green;
 }
