@@ -1,13 +1,25 @@
 import React from 'react';
 
+const updateTime = time => {
+  let newTime;
+  if (time.slice(0,2) < 12) {
+    newTime = time.slice(0,5) + ' AM';
+  } else if (time.slice(0,2) === '12') {
+    newTime = "12:00 PM";
+  } else {
+    newTime = (time.slice(0,2) - 12) + time.slice(2,5) + ' PM';
+  }
+  return newTime;
+};
+
 const Details = ({ hour }) => {
   if (!hour) return <p></p>;
   debugger
   return (
-    <ul>
-      <li>Time: {hour.dt_txt.slice(11)}</li>
+    <ul className="hourly-update">
+      <li>Time: {updateTime(hour.dt_txt.slice(11))}</li>
       <li>Description: {hour.weather[0].description}</li>
-      <li>Temperature: {Math.round(hour.main.temp)}</li>
+      <li>Temperature: {Math.round(hour.main.temp)}˚F</li>
       <li>Humidity: {Math.round(hour.main.humidity)}</li>
       <li>Pressure: {Math.round(hour.main.pressure)}</li>
       <li>Wind: {Math.round(hour.wind.speed)}</li>
