@@ -22,7 +22,7 @@ class App extends Component {
     e.preventDefault();
     const city = e.target.city.value;
     const country = e.target.country.value;
-    const apiCall = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=imperial`);
+    const apiCall = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=imperial`);
     const data = await apiCall.json();
     if (data.list) {
       let uniqueDays = [];
