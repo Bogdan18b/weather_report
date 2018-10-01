@@ -16,14 +16,15 @@ class App extends Component {
     day4: undefined,
     day5: undefined,
     day6: undefined,
-    error: undefined
+    error: undefined,
+    degrees: "imperial"
   };
 
   getWeather = async (e) => {
     e.preventDefault();
     const city = e.target.city.value;
     const country = e.target.country.value;
-    const apiCall = await fetch(`//api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=imperial`);
+    const apiCall = await fetch(`//api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=${this.state.degrees}`);
     const data = await apiCall.json();
     if (data.list) {
       let uniqueDays = [];
@@ -54,7 +55,18 @@ class App extends Component {
         error: "City or country invalid."
       });
     }
-  }
+  };
+
+  changeDegrees = e => {
+    e.preventDefault();
+    let f = "Fahrenheit";
+    let c = "Celsius";
+    e.target.innerText = (e.target.innerText === f) ? c : f;
+    let d = (this.state.degrees === "imperial") ? "metric" : "imperial";
+    this.setState({
+      degrees: d
+    });
+  };
 
   render() {
     return (
@@ -63,7 +75,8 @@ class App extends Component {
           city={this.state.city}
           country={this.state.country}
           />
-        <Form getWeather={this.getWeather} />
+        <Form getWeather={this.getWeather}
+              changeDegrees={this.changeDegrees}/>
         <Weather
           day1={this.state.day1}
           day2={this.state.day2}
@@ -71,6 +84,7 @@ class App extends Component {
           day4={this.state.day4}
           day5={this.state.day5}
           day6={this.state.day6}
+          degrees={this.state.degrees}
           error={this.state.error}
         />
       </Fragment>

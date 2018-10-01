@@ -20,7 +20,7 @@ const Details = ({ hour }) => {
     <ul
       className="hourly-update">
       <li>Time: {updateTime(hour.dt_txt.slice(11))}</li>
-      <li>Temperature: {Math.round(hour.main.temp)}˚F</li>
+      <li>Temperature: {Math.round(hour.main.temp)}˚</li>
       <li>Humidity: {Math.round(hour.main.humidity)}%</li>
       <li>Pressure: {Math.round(hour.main.pressure)}&nbsp;hPa</li>
       <li>Wind: {Math.round(hour.wind.speed)}&nbsp;mph</li>

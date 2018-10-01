@@ -39,8 +39,8 @@ class DailyWeather extends Component {
     return (
       <div onClick={this.handleClick} className="daily-main">
         <h1>{ this.props.day[0].dt_txt.slice(5,10) }</h1>
-        <h3>{ Math.round(minTemp) }˚F</h3>
-        <h3>{ Math.round(maxTemp) }˚F</h3>
+        <h3>{ Math.round(minTemp) }˚</h3>
+        <h3>{ Math.round(maxTemp) }˚</h3>
         <h3><img className="forecast-image"
           src={forecast} alt=""/></h3>
         <p>details</p>
