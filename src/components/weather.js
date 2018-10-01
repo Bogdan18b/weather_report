@@ -3,6 +3,7 @@ import DailyWeather from './daily_weather';
 import '../stylesheets/weather.css';
 
 const Weather = props => {
+	debugger
 	if (!props) return <p></p>
 	if (props.error) return <h3 className="weather-error">{ props.error }</h3>;
 return (

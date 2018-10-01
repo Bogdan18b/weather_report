@@ -25,7 +25,7 @@ const Details = ({ hour }) => {
       <li>Wind: {Math.round(hour.wind.speed)}&nbsp;mph</li>
       <li>Description: {hour.weather[0].description}</li>
       <li><img className="hourly-update-pic"
-        src={`http://openweathermap.org/img/w/${sign}.png`} alt=""/></li>
+        src={`https://openweathermap.org/img/w/${sign}.png`} alt=""/></li>
     </ul>
   );
 };
