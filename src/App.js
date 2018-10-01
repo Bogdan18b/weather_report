@@ -24,6 +24,8 @@ class App extends Component {
     e.preventDefault();
     const city = e.target.city.value;
     const country = e.target.country.value;
+    e.target.city.value = "";
+    e.target.country.value = "";
     const apiCall = await fetch(`//api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=${this.state.degrees}`);
     const data = await apiCall.json();
     if (data.list) {
@@ -32,7 +34,6 @@ class App extends Component {
         let day = item.dt_txt.slice(0, 10);
         if (!uniqueDays.includes(day)) uniqueDays.push(day);
       });
-      debugger
       this.setState({
         city: data.city.name,
         country: data.city.country,

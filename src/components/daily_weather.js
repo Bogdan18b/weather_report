@@ -9,14 +9,12 @@ class DailyWeather extends Component {
   handleClick = (e) => {
     e.preventDefault();
     let status = !this.state.display;
-    debugger
     this.setState({
       display: status
     })
   };
 
   render() {
-    debugger
     if (!this.props.day || this.props.day.length === 0) return <p></p>
     let minTemp = 120;
     let maxTemp = 0;
@@ -28,13 +26,13 @@ class DailyWeather extends Component {
         description.push(hour.weather[0].main);
       });
     if (description.includes("Rain")) {
-      forecast = "http://openweathermap.org/img/w/10d.png";
+      forecast = "https://openweathermap.org/img/w/10d.png";
     } else if (description.includes("Snow")) {
-      forecast = "http://openweathermap.org/img/w/13d.png";
+      forecast = "https://openweathermap.org/img/w/13d.png";
     } else if (description.includes("Clouds")) {
-      forecast = "http://openweathermap.org/img/w/03d.png";
+      forecast = "https://openweathermap.org/img/w/03d.png";
     } else {
-      forecast = "http://openweathermap.org/img/w/01d.png";
+      forecast = "https://openweathermap.org/img/w/01d.png";
     };
     return (
       <div onClick={this.handleClick} className="daily-main">

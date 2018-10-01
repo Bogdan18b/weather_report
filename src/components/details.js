@@ -14,7 +14,6 @@ const updateTime = time => {
 
 const Details = ({ hour }) => {
   if (!hour) return <p></p>;
-  debugger
   let sign = hour.weather[0].icon;
   return (
     <ul

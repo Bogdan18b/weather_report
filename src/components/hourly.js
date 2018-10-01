@@ -3,7 +3,6 @@ import Details from './details';
 
 const Hourly = ({ day }) => {
   if (!day) return <p></p>;
-    debugger
   return (
     <div className="hourly" >
       {day.map(hour => {

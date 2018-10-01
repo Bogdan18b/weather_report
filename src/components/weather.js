@@ -5,7 +5,6 @@ import '../stylesheets/weather.css';
 const Weather = props => {
 	if (!props) return <p></p>
 	if (props.error) return <h3 className="weather-error">{ props.error }</h3>;
-	debugger
 return (
 	 <div className="weather-main">
 		 <ul className="description">
