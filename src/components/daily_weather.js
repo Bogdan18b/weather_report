@@ -16,7 +16,8 @@ class DailyWeather extends Component {
   };
 
   render() {
-    if (!this.props.day) return <p></p>
+    debugger
+    if (!this.props.day || this.props.day.length === 0) return <p></p>
     let minTemp = 120;
     let maxTemp = 0;
     let description = [];
@@ -35,7 +36,6 @@ class DailyWeather extends Component {
     } else {
       forecast = "http://openweathermap.org/img/w/01d.png";
     };
-    debugger
     return (
       <div onClick={this.handleClick} className="daily-main">
         <h1>{ this.props.day[0].dt_txt.slice(5,10) }</h1>

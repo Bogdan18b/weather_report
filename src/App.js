@@ -18,6 +18,7 @@ class App extends Component {
     day6: undefined,
     error: undefined
   };
+
   getWeather = async (e) => {
     e.preventDefault();
     const city = e.target.city.value;
@@ -29,7 +30,7 @@ class App extends Component {
       data.list.forEach(item => {
         let day = item.dt_txt.slice(0, 10);
         if (!uniqueDays.includes(day)) uniqueDays.push(day);
-      })
+      });
       debugger
       this.setState({
         city: data.city.name,
@@ -54,6 +55,7 @@ class App extends Component {
       });
     }
   }
+
   render() {
     return (
       <Fragment>
