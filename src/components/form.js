@@ -8,9 +8,9 @@ const Form = ({ getWeather, changeDegrees }) => {
 				<br/>
 				<input className="form-input" type="text" placeholder="country" name="country"/>
 				<br/>
-				<button onClick={changeDegrees}
+				<p onClick={changeDegrees}
 					className="form-input">Fahrenheit
-				</button>
+				</p>
 				<br/>
 				<input className="form-button" type="submit" value="search"/>
 			</form>

@@ -59,6 +59,7 @@ class App extends Component {
   };
 
   changeDegrees = e => {
+    debugger
     e.preventDefault();
     let f = "Fahrenheit";
     let c = "Celsius";

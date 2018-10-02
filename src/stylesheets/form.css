@@ -2,6 +2,10 @@
   text-align: center;
   font-size: 16px;
   padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-input {
@@ -9,7 +13,6 @@
   border: 1px solid lightgray;
   border-radius: 20px;
   background-color: lightskyblue;
-  margin: 5px;
   font-size: 20px;
   padding: 5px;
 }
@@ -19,7 +22,6 @@
   border-radius: 20px;
   width: 150px;
   padding: 5px;
-  margin: 5px;
   background-color: blue;
   color: azure;
 }
