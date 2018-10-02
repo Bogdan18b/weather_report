@@ -25,3 +25,7 @@
   background-color: blue;
   color: azure;
 }
+
+.form-main > p {
+  cursor: pointer;
+}

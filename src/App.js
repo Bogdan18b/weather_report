@@ -3,6 +3,7 @@ import Header from "./components/header";
 import Form from "./components/form";
 import Weather from "./components/weather";
 import "./reset.css";
+require('dotenv').config();
 
 const API_KEY = "1ff011665e3637b91147bb172ff57517";
 
@@ -22,10 +23,17 @@ class App extends Component {
 
   getWeather = async (e) => {
     e.preventDefault();
-    const city = e.target.city.value;
-    const country = e.target.country.value;
+    let input = document.getElementById('search-box');
+    let options = {
+      types: ['(cities)']
+    };
+    let autocomplete = new global.google.maps.places.Autocomplete(input, options);
+
+    let location = e.target.city.value.split(", ");
+    let city = location[0];
+    let country = location[location.length - 1].slice(0,2);
+    debugger
     e.target.city.value = "";
-    e.target.country.value = "";
     const apiCall = await fetch(`//api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=${this.state.degrees}`);
     const data = await apiCall.json();
     if (data.list) {
