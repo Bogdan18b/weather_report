@@ -32,6 +32,7 @@ class App extends Component {
     let location = e.target.city.value.split(", ");
     let city = location[0];
     let country = location[location.length - 1];
+    if (location.length < 2) country = "US";
     debugger
     e.target.city.value = "";
     const apiCall = await fetch(`//api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=${this.state.degrees}`);
