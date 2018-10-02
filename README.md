@@ -4,7 +4,7 @@ Weather Report is a single page web app built using Create-React-App, that fetch
 
 ![weather](https://raw.githubusercontent.com/Bogdan18b/weather_report/master/homepage.png)
 
-The data received from the OpenWeatherMap API is an object which includes an array of 40 elements, each one being the detailed weather forecast for the next 3 hours. I divided the array in 6 different ones, each one representing data for a day, so I can calculate minimum and maximum temperature for each day and display it properly. I used the CSS grid system to show the data.
+I implemented a google maps autocomplete search bar for accurate location.The data received from the OpenWeatherMap API is an object which includes an array of 40 elements, each one being the detailed weather forecast for the next 3 hours. I divided the array in 6 different ones, each one representing data for a day, so I can calculate minimum and maximum temperature for each day and display it properly. I used the CSS grid system to show the data.
 ```javaScript
       if (data.list) {
         let uniqueDays = [];
@@ -25,8 +25,8 @@ The data received from the OpenWeatherMap API is an object which includes an arr
         });
 ```
 
-
-Future plans include improving the User Interface and adding tests.
+Thetemperature is displayed but default in Fahrenheit degrees, but you can toggle between Fahrenheit and Celsius by clicking the button.
+Future plans include improving the User Interface and adding more tests.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
