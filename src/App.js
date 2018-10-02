@@ -27,13 +27,11 @@ class App extends Component {
     let options = {
       types: ['(cities)']
     };
-    let autocomplete = new global.google.maps.places.Autocomplete(input, options);
-
+    new global.google.maps.places.Autocomplete(input, options);
     let location = e.target.city.value.split(", ");
     let city = location[0];
     let country = location[location.length - 1];
     if (location.length < 2) country = "US";
-    debugger
     e.target.city.value = "";
     const apiCall = await fetch(`//api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=${this.state.degrees}`);
     const data = await apiCall.json();
@@ -68,7 +66,6 @@ class App extends Component {
   };
 
   changeDegrees = e => {
-    debugger
     e.preventDefault();
     let f = "Fahrenheit";
     let c = "Celsius";
