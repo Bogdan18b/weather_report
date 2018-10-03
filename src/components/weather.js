@@ -9,6 +9,7 @@ return (
 	 <div className="weather-main">
 		 <ul className="description">
 			 <li>Date:</li>
+			 <li>Day:</li>
 			 <li>Min Temp:</li>
 			 <li>Max Temp:</li>
 			 <li>Forecast:</li>

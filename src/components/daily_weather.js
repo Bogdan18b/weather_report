@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import Hourly from './hourly';
 
+const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+const getDay = date => {
+  const today = new Date(date);
+  const day = today.getDay();
+  return DAYS[day];
+}
+
 class DailyWeather extends Component {
   state = {
     display: false
@@ -16,6 +24,7 @@ class DailyWeather extends Component {
 
   render() {
     if (!this.props.day || this.props.day.length === 0) return <p></p>
+    let day = getDay(this.props.day[0].dt_txt);
     let minTemp = 120;
     let maxTemp = 0;
     let description = [];
@@ -37,6 +46,7 @@ class DailyWeather extends Component {
     return (
       <div onClick={this.handleClick} className="daily-main">
         <h1>{ this.props.day[0].dt_txt.slice(5,10) }</h1>
+        <h1>{ day }</h1>
         <h3>{ Math.round(minTemp) }˚</h3>
         <h3>{ Math.round(maxTemp) }˚</h3>
         <h3><img className="forecast-image"
