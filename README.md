@@ -25,8 +25,8 @@ I implemented a google maps autocomplete search bar for accurate location.The da
         });
 ```
 
-Thetemperature is displayed but default in Fahrenheit degrees, but you can toggle between Fahrenheit and Celsius by clicking the button.
-Future plans include improving the User Interface and adding more tests.
+The temperature is displayed but default in Fahrenheit degrees, but you can toggle between Fahrenheit and Celsius by clicking the button.
+Future plans include adding more hourly details and more tests, as well as improving the user interface and user experience.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
