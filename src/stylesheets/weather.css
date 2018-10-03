@@ -5,7 +5,6 @@
   grid-auto-rows: max-content;
   margin: 10px;
   padding: 10px;
-  cursor: pointer;
 }
 
 .hourly {
@@ -66,4 +65,8 @@
 .forecast-image {
   width: 30%;
   margin: 0 auto;
+}
+
+.hide {
+  display: none;
 }

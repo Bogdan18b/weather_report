@@ -17,6 +17,21 @@
   padding: 5px;
 }
 
+.form-degrees {
+  width: 200px;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  background-color: lightskyblue;
+  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.form-degrees:hover {
+  background-color: red;
+  color: white;
+}
+
 .form-button {
   border: 1px solid black;
   border-radius: 20px;
@@ -24,8 +39,14 @@
   padding: 5px;
   background-color: blue;
   color: azure;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
-.form-main > p {
-  cursor: pointer;
+.form-button:hover {
+  background-color: red;
+}
+
+#degrees {
+  color: blue;
 }

@@ -84,7 +84,8 @@ class App extends Component {
           country={this.state.country}
           />
         <Form getWeather={this.getWeather}
-              changeDegrees={this.changeDegrees}/>
+              changeDegrees={this.changeDegrees}
+              type={this.state.degrees}/>
         <Weather
           day1={this.state.day1}
           day2={this.state.day2}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Hourly from './hourly';
 
-const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 const getDay = date => {
   const today = new Date(date);
@@ -44,14 +44,16 @@ class DailyWeather extends Component {
       forecast = "https://openweathermap.org/img/w/01d.png";
     };
     return (
-      <div onClick={this.handleClick} className="daily-main">
+      <div className="daily-main">
         <h1>{ this.props.day[0].dt_txt.slice(5,10) }</h1>
         <h1>{ day }</h1>
         <h3>{ Math.round(minTemp) }˚</h3>
         <h3>{ Math.round(maxTemp) }˚</h3>
         <h3><img className="forecast-image"
           src={forecast} alt=""/></h3>
-        <p>details</p>
+        <p className="form-button"
+          onClick={this.handleClick} >details
+        </p>
         { this.state.display ? <Hourly day={this.props.day}/> : <p></p>}
       </div>
     );

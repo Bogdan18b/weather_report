@@ -2,7 +2,9 @@ import React from 'react';
 
 const updateTime = time => {
   let newTime;
-  if (time.slice(0,2) < 12) {
+  if (time.slice(0,2) === '00') {
+    newTime = "12:00 AM";
+  } else if (time.slice(0,2) < 12) {
     newTime = time.slice(0,5) + ' AM';
   } else if (time.slice(0,2) === '12') {
     newTime = "12:00 PM";
