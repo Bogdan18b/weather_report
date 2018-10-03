@@ -11,14 +11,19 @@ const getDay = date => {
 
 class DailyWeather extends Component {
   state = {
-    display: false
+    display: false,
+    details: "details"
   };
 
   handleClick = (e) => {
     e.preventDefault();
+    let d;
+    d = this.state.details === "details" ? "close" : "details"
+    debugger
     let status = !this.state.display;
     this.setState({
-      display: status
+      display: status,
+      details: d
     })
   };
 
@@ -52,7 +57,8 @@ class DailyWeather extends Component {
         <h3><img className="forecast-image"
           src={forecast} alt=""/></h3>
         <p className="form-button"
-          onClick={this.handleClick} >details
+          onClick={this.handleClick} >
+          { this.state.details }
         </p>
         { this.state.display ? <Hourly day={this.props.day}/> : <p></p>}
       </div>

@@ -3,7 +3,6 @@ import Header from "./components/header";
 import Form from "./components/form";
 import Weather from "./components/weather";
 import "./reset.css";
-require('dotenv').config();
 
 const API_KEY = "1ff011665e3637b91147bb172ff57517";
 
