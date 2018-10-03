@@ -1,12 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import '../stylesheets/form.css';
 
 const toggleClass = () => {
-	debugger
 	document.getElementById("degrees").classList.toggle('hide');
 }
-class Form extends React.Component {
-	debugger
+class Form extends Component {
 	changeType = type => {
 		return type === "imperial" ? "Celsius" : "Fahrenheit";
 	}
