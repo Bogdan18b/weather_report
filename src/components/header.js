@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import '../stylesheets/header.css';
 
 const Header = props => {
@@ -11,6 +12,11 @@ const Header = props => {
 				Find out the temperature for the next 5 days</h3>
 		</div>
 	);
+};
+
+Header.propTypes = {
+	city: PropTypes.string,
+	country: PropTypes.string,
 };
 
 export default Header;

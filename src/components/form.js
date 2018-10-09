@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import '../stylesheets/form.css';
 
 const toggleClass = () => {
 	document.getElementById("degrees").classList.toggle('hide');
 }
+
 class Form extends Component {
 	changeType = type => {
 		return type === "imperial" ? "Celsius" : "Fahrenheit";
@@ -24,7 +26,13 @@ class Form extends Component {
 					<input className="form-button" type="submit" value="search"/>
 				</form>
 		);
+	}
 }
+
+Form.propTypes = {
+	getWeather: PropTypes.func,
+	changeDegrees: PropTypes.func,
+	type: PropTypes.string
 }
 
 export default Form;

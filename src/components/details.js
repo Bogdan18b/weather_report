@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const updateTime = time => {
   let newTime;
@@ -15,7 +16,7 @@ const updateTime = time => {
 };
 
 const Details = ({ hour }) => {
-  if (!hour) return <p></p>;
+  if (!hour) return null;
   let sign = hour.weather[0].icon;
   return (
     <ul
@@ -30,6 +31,21 @@ const Details = ({ hour }) => {
         src={`https://openweathermap.org/img/w/${sign}.png`} alt=""/></li>
     </ul>
   );
+};
+
+Details.propTypes = {
+  hour: PropTypes.shape({
+    dt_txt: PropTypes.string,
+    main: PropTypes.shape({
+      temp: PropTypes.number,
+      humidity: PropTypes.number,
+      pressure: PropTypes.number,
+    }),
+    wind: PropTypes.shape({
+      speed: PropTypes.number
+    }),
+    weather: PropTypes.array
+  })
 };
 
 export default Details;

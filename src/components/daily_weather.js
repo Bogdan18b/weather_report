@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import Hourly from './hourly';
 
 const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -19,7 +20,6 @@ class DailyWeather extends Component {
     e.preventDefault();
     let d;
     d = this.state.details === "details" ? "close" : "details"
-    debugger
     let status = !this.state.display;
     this.setState({
       display: status,
@@ -28,7 +28,7 @@ class DailyWeather extends Component {
   };
 
   render() {
-    if (!this.props.day || this.props.day.length === 0) return <p></p>
+    if (!this.props.day || this.props.day.length === 0) return null;
     let day = getDay(this.props.day[0].dt_txt);
     let minTemp = 120;
     let maxTemp = 0;
@@ -64,6 +64,10 @@ class DailyWeather extends Component {
       </div>
     );
   }
+}
+
+DailyWeather.propTypes = {
+  day: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default DailyWeather;
