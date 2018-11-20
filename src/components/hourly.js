@@ -1,14 +1,15 @@
 import React from 'react';
-import Details from './details';
+import Details from './Details';
+import { HourlyStyleItem } from './WeatherStyles';
 
 const Hourly = ({ day }) => {
   if (!day) return null;
   return (
-    <div className="hourly" >
+    <HourlyStyleItem>
       {day.map(hour => {
         return <Details key={hour.dt} hour={hour}/>;
       })}
-    </div>
+    </HourlyStyleItem>
   );
 };
 
