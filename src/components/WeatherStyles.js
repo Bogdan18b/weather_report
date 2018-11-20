@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 export const DailyStyleContainer = styled.div`
 display: grid;
-grid-template-columns: repeat(6, minmax(150px,1fr));
+grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 grid-auto-rows: max-content;
 margin: 1rem;
 padding: 1rem;
 grid-gap: 2rem;
+width: -webkit-fill-available;
 `;
 
 export const DailyStyleItem = styled.div`
@@ -16,6 +17,18 @@ background-color: lightskyblue;
 border-radius: .5rem;
 padding: 1rem;
 border: 2px solid lightgray;
+  h1 {
+    padding: 0.5rem;
+    font-weight: 700;
+    &:nth-child(2) {
+      border-bottom: 3px solid blue;
+      margin-bottom: 1.5rem;
+    }
+  }
+  img {
+    width: 60%;
+    margin: 0 auto;
+  }
 `;
 
 export const HourlyStyleContainer = styled.div`

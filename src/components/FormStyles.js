@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 70% 30%;
   justify-content: space-around;
 
   iframe {
-    width: 500px;
+    width: 90%;
     height: 500px;
     margin: 20px;
     border: 5px solid lightskyblue;

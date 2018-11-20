@@ -23,7 +23,8 @@ const DailyWeather = props => {
   };
 
     if (!props.day || props.day.length === 0) return null;
-    let date = format(parse(props.day[0].dt_txt), 'dddd MMM DD');
+    let dateDay = format(parse(props.day[0].dt_txt), 'dddd');
+    let dateMonth = format(parse(props.day[0].dt_txt), 'MMM DD');
     let minTemp = 120;
     let maxTemp = 0;
     let description = [];
@@ -44,14 +45,14 @@ const DailyWeather = props => {
     };
     return (
       <DailyStyleItem>
-        <h1>{ date }</h1>
+        <h1>{ dateDay }</h1>
+        <h1>{ dateMonth }</h1>
+        <h3><img src={forecast} alt=""/></h3>
         <h3>min: { Math.round(minTemp) }˚</h3>
         <h3>max: { Math.round(maxTemp) }˚</h3>
-        <h3><img className="forecast-image"
-          src={forecast} alt=""/></h3>
         <Button
           onClick={props.toggle}>
-          { state.details }
+            details
         </Button>
       </DailyStyleItem>
     );

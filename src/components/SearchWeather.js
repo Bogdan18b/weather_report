@@ -10,12 +10,13 @@ const Weather = props => {
   let [state, setState] = useState({
     city: undefined,
     country: undefined,
+    city: undefined,
+    country: undefined,
     degrees: 'imperial',
+    tempMap: undefined,
     map: "https://maps.google.com/?q=New+York,+NY,+USA&ftid=0x89c24fa5d33f083b:0xc80b8f06e177fe62&output=embed",
     search: false
   });
-
-  let inputRef = React.createRef();
 
   const changeDegrees = e => {
     e.preventDefault();
@@ -26,7 +27,7 @@ const Weather = props => {
 
   const search = e => {
     e.preventDefault();
-    setState({...state, search: true})
+    setState({...state, search: true, city: state.tempCity, country: state.tempCountry, map: state.tempMap});
   }
 
   const toggleClass = () => {
@@ -42,12 +43,10 @@ const Weather = props => {
                 let details = place.formatted_address.split(", ");
                 let last = details.length - 1;
                 setState({...state,
-                  city: details[0],
-                  country: details[last],
-                  map: place.url +  "&output=embed",
-                  search: false
+                  tempCity: details[0],
+                  tempCountry: details[last],
+                  tempMap: place.url +  "&output=embed",
                 })
-                console.log(place);
               }}
               types={['(cities)']}
           />
