@@ -1,26 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
-import Hourly from './Hourly';
 import { format, parse } from 'date-fns';
 import { Button } from './FormStyles';
 import { DailyStyleItem } from './WeatherStyles';
 
 const DailyWeather = props => {
-  let [state, setState] = useState({
-    display: false,
-    details: "details"
-  });
-
-  const handleClick = e => {
-    e.preventDefault();
-    let d;
-    d = state.details === "details" ? "close" : "details"
-    let status = !state.display;
-    setState({
-      display: status,
-      details: d
-    })
-  };
 
     if (!props.day || props.day.length === 0) return null;
     let dateDay = format(parse(props.day[0].dt_txt), 'dddd');

@@ -58,3 +58,9 @@ html {
 .hide {
   display: none;
 }
+
+@media (max-width: 800px) {
+  html {
+    font-size: 7px;
+  }
+}

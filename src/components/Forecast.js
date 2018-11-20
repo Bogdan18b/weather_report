@@ -1,6 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import styled from 'styled-components';
-import Header from './Header';
+import React, { Fragment, useState } from 'react';
 import { format } from 'date-fns';
 import DailyWeather from './DailyWeather';
 import Hourly from './Hourly';
@@ -13,7 +11,7 @@ const Forecast = ({ data }) => {
     day3: false,
     day4: false,
     day5: false,
-    day5: false,
+    day6: false,
   });
   let error;
   let { list } = data;
@@ -23,22 +21,18 @@ const Forecast = ({ data }) => {
     let day = format(item.dt_txt, 'MMM DD');
     if (!uniqueDays.includes(day)) uniqueDays.push(day);
    });
-   console.log(list);
      let day1 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[0]);
      let day2 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[1]);
      let day3 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[2]);
      let day4 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[3]);
      let day5 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[4]);
      let day6 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[5]);
-     console.log(day1);
   //    error = "";
 
   // const toggle1 = day => e => {
   //   let dayX = "day" + day;
-  //   console.log(dayX, show.dayX);
   //   e.preventDefault();
   //   setShow({...show, dayX: !show.dayX})
-  //   console.log(show);
   // }
   const toggle1 = e => {
     e.preventDefault();

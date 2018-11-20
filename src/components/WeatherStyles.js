@@ -26,7 +26,7 @@ border: 2px solid lightgray;
     }
   }
   img {
-    width: 60%;
+    width: 40%;
     margin: 0 auto;
   }
 `;

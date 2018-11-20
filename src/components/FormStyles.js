@@ -12,6 +12,10 @@ export const Container = styled.div`
     border: 5px solid lightskyblue;
     border-radius: 5px;
   }
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Form = styled.div`
