@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DailyStyleContainer = styled.div`
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
 grid-auto-rows: max-content;
 margin: 1rem;
 padding: 1rem;
@@ -38,21 +38,21 @@ export const HourlyStyleContainer = styled.div`
 `;
 
 export const HourlyStyleItem = styled.div`
-font-size: 20px;
+font-size: 2rem;
 margin-left: auto;
 margin-right: auto;
 background-color: lightskyblue;
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-padding: 10px;
-margin: 10px;
-grid-gap: 10px;
+grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+padding: 1rem;
+margin: 1rem;
+grid-gap: 1rem;
 `;
 
 export const HourlyList = styled.ul`
-font-size: 20px;
+font-size: 2rem;
 border: 1px solid black;
-padding: 5px;
+padding: 0.5rem;
 background-color: #F3F4F6;
 background-size: 80%;
 position: relative;

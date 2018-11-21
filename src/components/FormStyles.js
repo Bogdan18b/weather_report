@@ -7,10 +7,10 @@ export const Container = styled.div`
 
   iframe {
     width: 90%;
-    height: 500px;
-    margin: 20px;
-    border: 5px solid lightskyblue;
-    border-radius: 5px;
+    height: 50rem;
+    margin: 2rem;
+    border: 0.5rem solid lightskyblue;
+    border-radius: 0.5rem;
   }
   @media (max-width: 800px) {
     display: flex;
@@ -29,7 +29,7 @@ export const Form = styled.div`
   align-self: baseline;
 
   input {
-    width: 300px;
+    width: 30rem;
     border: 1px solid lightgray;
     border-radius: 2rem;
     background-color: lightskyblue;
@@ -41,7 +41,7 @@ export const Form = styled.div`
 export const Button = styled.button`
   border: 1px solid black;
   border-radius: 2rem;
-  width: 150px;
+  width: 15rem;
   padding: 0.5rem;
   background-color: blue;
   color: azure;
