@@ -53,17 +53,17 @@ grid-gap: 1rem;
 `;
 
 export const HourlyList = styled.ul`
-font-size: 2rem;
-border: 1px solid black;
-padding: 0.5rem;
-background-color: #F3F4F6;
-background-size: 80%;
-position: relative;
-
-li > img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 25%;
-}
+  font-size: 2rem;
+  border: 1px solid black;
+  padding: 0.5rem;
+  background-color: #F3F4F6;
+  background-size: 80%;
+  position: relative;
+  text-align: center;
+  li > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25%;
+  }
 `;
