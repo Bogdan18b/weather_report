@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import Header from './Header';
 import WeatherReport from './WeatherReport';
 import Autocomplete from 'react-google-autocomplete';
@@ -8,14 +8,14 @@ const Weather = props => {
   let f = "Fahrenheit";
   let c = "Celsius";
   let [state, setState] = useState({
-    city: undefined,
-    country: undefined,
+    city: "New York",
+    country: "USA",
     tempCity: undefined,
     tempCountry: undefined,
     degrees: 'imperial',
     tempMap: undefined,
     map: "https://maps.google.com/?q=New+York,+NY,+USA&ftid=0x89c24fa5d33f083b:0xc80b8f06e177fe62&output=embed",
-    search: false
+    search: true
   });
 
   const changeDegrees = e => {
@@ -35,10 +35,11 @@ const Weather = props => {
 };
 
     return (
-      <Container>
+      <Fragment>
         <Form>
           <Header city={state.city} country={state.country}/>
           <Autocomplete
+            placeholder="select location"
               onPlaceSelected={ place => {
                 let details = place.formatted_address.split(", ");
                 let last = details.length - 1;
@@ -61,12 +62,12 @@ const Weather = props => {
           <Button onClick={search}>
             search
           </Button>
-          {state.search && <WeatherReport city={state.city} country={state.country} degrees={state.degrees}/>}
         </Form>
-        <div>
+        <Container>
+        {state.search && <WeatherReport city={state.city} country={state.country} degrees={state.degrees}/>}
           <iframe title="map" src={state.map} />
-        </div>
     </Container>
+  </Fragment>
     );
 }
 
