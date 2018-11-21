@@ -1,27 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { HourlyList } from './WeatherStyles';
-
-const updateTime = time => {
-  let newTime;
-  if (time.slice(0,2) === '00') {
-    newTime = "12:00 AM";
-  } else if (time.slice(0,2) < 12) {
-    newTime = time.slice(0,5) + ' AM';
-  } else if (time.slice(0,2) === '12') {
-    newTime = "12:00 PM";
-  } else {
-    newTime = (time.slice(0,2) - 12) + time.slice(2,5) + ' PM';
-  }
-  return newTime;
-};
+import { format } from 'date-fns';
 
 const Details = ({ hour }) => {
   if (!hour) return null;
   let sign = hour.weather[0].icon;
   return (
     <HourlyList>
-      <li>Time: {updateTime(hour.dt_txt.slice(11))}</li>
+      <li>Time: {format(hour.dt_txt, "hh:mm A")}</li>
       <li>Temperature: {Math.round(hour.main.temp)}˚</li>
       <li>Humidity: {Math.round(hour.main.humidity)}%</li>
       <li>Pressure: {Math.round(hour.main.pressure)}&nbsp;hPa</li>
