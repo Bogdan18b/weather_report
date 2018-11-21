@@ -13,9 +13,8 @@ const Forecast = ({ data }) => {
     day5: false,
     day6: false,
   });
-  let error;
   let { list } = data;
-  if (!list) return <p> 'invalid city'</p>;
+  if (!list) return <p>City not found</p>;
   let uniqueDays = [];
   list.forEach(item => {
     let day = format(item.dt_txt, 'MMM DD');
@@ -27,7 +26,6 @@ const Forecast = ({ data }) => {
      let day4 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[3]);
      let day5 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[4]);
      let day6 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[5]);
-  //    error = "";
 
   // const toggle1 = day => e => {
   //   let dayX = "day" + day;
@@ -36,28 +34,28 @@ const Forecast = ({ data }) => {
   // }
   const toggle1 = e => {
     e.preventDefault();
-    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day5: false, day1: !show.day1})
+    setShow({day1: !show.day1, day2: false, day3: false, day4: false, day5: false, day6: false})
   }
   const toggle2 = e => {
     e.preventDefault();
-    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day5: false, day2: !show.day2})
+    setShow({day1: false, day2: !show.day2, day3: false, day4: false, day5: false, day6: false})
   }
   const toggle3 = e => {
     e.preventDefault();
-    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day5: false, day3: !show.day3})
+    setShow({day1: false, day2: false, day3: !show.day3, day4: false, day5: false, day6: false})
   }
   const toggle4 = e => {
     e.preventDefault();
-    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day5: false, day4: !show.day4})
+    setShow({day1: false, day2: false, day3: false, day4: !show.day4, day5: false, day6: false})
   }
   const toggle5 = e => {
     e.preventDefault();
-    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day5: false, day5: !show.day5})
+    setShow({day1: false, day2: false, day3: false, day4: false, day5: !show.day5, day6: false})
   }
   const toggle6 = e => {
     e.preventDefault();
     debugger
-    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day5: false, day6: !show.day6})
+    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day6: !show.day6})
   }
 
      return (
