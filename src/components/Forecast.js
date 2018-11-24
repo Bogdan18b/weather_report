@@ -1,9 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { format } from 'date-fns';
-import scrollToElement from 'scroll-to-element';
 import DailyWeather from './DailyWeather';
 import Hourly from './Hourly';
-import { DailyStyleContainer, HourlyStyleContainer } from './WeatherStyles';
+import { DailyStyleContainer, HourlyStyleContainer, ErrorMessage } from './WeatherStyles';
 
 const Forecast = ({ data }) => {
   let [show, setShow] = useState({
@@ -15,7 +14,7 @@ const Forecast = ({ data }) => {
     day6: false,
   });
   let { list } = data;
-  if (!list) return <p>City not found</p>;
+  if (!list) return <ErrorMessage>City not found!</ErrorMessage>;
   let uniqueDays = [];
   list.forEach(item => {
     let day = format(item.dt_txt, 'MMM DD');
@@ -28,51 +27,22 @@ const Forecast = ({ data }) => {
      let day5 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[4]);
      let day6 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[5]);
 
-  // const toggle1 = day => e => {
-  //   let dayX = "day" + day;
-  //   e.preventDefault();
-  //   setShow({...show, dayX: !show.dayX})
-  // }
-  const toggle1 = e => {
+  const toggle = (day, number) => e => {
+    const d = 'day' + number;
+    const element = document.getElementById("details");
+    element.scrollIntoView();
     e.preventDefault();
-    setShow({day1: !show.day1, day2: false, day3: false, day4: false, day5: false, day6: false})
-    scrollToElement("#hello", {offset: 300});
+    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day6: false, [d]: !show[d]})
   }
-  const toggle2 = e => {
-    e.preventDefault();
-    setShow({day1: false, day2: !show.day2, day3: false, day4: false, day5: false, day6: false})
-    scrollToElement("#hello", {offset: 300});
-  }
-  const toggle3 = e => {
-    e.preventDefault();
-    setShow({day1: false, day2: false, day3: !show.day3, day4: false, day5: false, day6: false})
-    scrollToElement("#hello", {offset: 300});
-  }
-  const toggle4 = e => {
-    e.preventDefault();
-    setShow({day1: false, day2: false, day3: false, day4: !show.day4, day5: false, day6: false})
-    scrollToElement("#hello", {offset: 300});
-  }
-  const toggle5 = e => {
-    e.preventDefault();
-    setShow({day1: false, day2: false, day3: false, day4: false, day5: !show.day5, day6: false})
-    scrollToElement("#hello", {offset: 300});
-  }
-  const toggle6 = e => {
-    e.preventDefault();
-    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day6: !show.day6})
-    scrollToElement("#hello", {offset: 300});
-  }
-
      return (
        <div>
          <DailyStyleContainer>
-           <DailyWeather day={day1} toggle={toggle1}/>
-           <DailyWeather day={day2} toggle={toggle2}/>
-           <DailyWeather day={day3} toggle={toggle3}/>
-           <DailyWeather day={day4} toggle={toggle4}/>
-           <DailyWeather day={day5} toggle={toggle5}/>
-           <DailyWeather day={day6} toggle={toggle6}/>
+           <DailyWeather day={day1} toggle={toggle(show.day1, 1)}/>
+           <DailyWeather day={day2} toggle={toggle(show.day2, 2)}/>
+           <DailyWeather day={day3} toggle={toggle(show.day3, 3)}/>
+           <DailyWeather day={day4} toggle={toggle(show.day4, 4)}/>
+           <DailyWeather day={day5} toggle={toggle(show.day5, 5)}/>
+           <DailyWeather day={day6} toggle={toggle(show.day6, 6)}/>
            { uniqueDays.length === 6 || <div id="extra"></div>}
         </DailyStyleContainer>
         <HourlyStyleContainer>
@@ -83,6 +53,7 @@ const Forecast = ({ data }) => {
            {show.day5 && <Hourly className="details" day={day5} />}
            {show.day6 && <Hourly className="details" day={day6} />}
          </HourlyStyleContainer>
+         <p id="details"></p>
       </div>
     )
 };

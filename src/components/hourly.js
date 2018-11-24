@@ -5,7 +5,7 @@ import { HourlyStyleItem } from './WeatherStyles';
 const Hourly = ({ day }) => {
   if (!day) return null;
   return (
-    <HourlyStyleItem id="hello">
+    <HourlyStyleItem>
       {day.map(hour => {
         return <Details key={hour.dt} hour={hour}/>;
       })}

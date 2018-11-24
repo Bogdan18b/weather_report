@@ -9,7 +9,6 @@
     "react-dom": "^16.7.0-alpha.2",
     "react-google-autocomplete": "^1.0.18",
     "react-scripts": "^2.1.1",
-    "scroll-to-element": "^2.0.2",
     "styled-components": "^4.1.1"
   },
   "scripts": {
@@ -26,5 +25,11 @@
     "gh-pages": "^2.0.1",
     "react-test-renderer": "^16.6.3",
     "sinon": "^6.3.5"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
