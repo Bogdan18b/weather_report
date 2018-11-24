@@ -8,7 +8,7 @@ margin: 1rem;
 padding: 1rem;
 grid-gap: 3rem;
 width: -webkit-fill-available;
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   grid-template-columns: repeat(2, 1fr);
 }
 `;
@@ -66,4 +66,12 @@ export const HourlyList = styled.ul`
     right: 0;
     width: 25%;
   }
+`;
+
+export const ErrorMessage = styled.p`
+  font-size: 5rem;
+  font-weight: bold;
+  color: blue;
+  margin-left: 50%;
+  margin-top: 5rem;
 `;
