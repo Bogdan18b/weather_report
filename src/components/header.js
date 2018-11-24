@@ -21,8 +21,7 @@ const Header = ({ city, country }) => (
 		{	city ? <Title>Weather Report for {city + ", " + country}</Title> :
 									 <Title>Weather Report</Title>
 		}
-		<Subtitle>
-			Find out the temperature for the next 5 days</Subtitle>
+		<Subtitle>Five days weather forecast</Subtitle>
 	</div>
 	);
 
