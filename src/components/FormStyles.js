@@ -12,7 +12,7 @@ export const Container = styled.div`
     border: 0.5rem solid lightskyblue;
     border-radius: 0.5rem;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     display: flex;
     flex-direction: column;
   }
