@@ -8,6 +8,7 @@ margin: 1rem;
 padding: 1rem;
 grid-gap: 3rem;
 width: -webkit-fill-available;
+grid-auto-flow: dense;
 @media (max-width: 1000px) {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -47,6 +48,7 @@ margin-right: auto;
 background-color: lightskyblue;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+grid-column: 1 / -1;
 padding: 1rem;
 margin: 1rem;
 grid-gap: 1rem;

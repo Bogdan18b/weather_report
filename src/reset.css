@@ -53,10 +53,12 @@ html {
 
 #degrees {
   color: blue;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 1;
 }
 
 .hide {
-  display: none;
+  opacity: 0 !important;
 }
 
 #extra {
