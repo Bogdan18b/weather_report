@@ -51,6 +51,9 @@ const Weather = props => {
               }}
               types={['(cities)']}
           />
+        <Button onClick={search}>
+          search
+        </Button>
         <Button onClick={changeDegrees}
             onMouseEnter={toggleClass}
             onMouseLeave={toggleClass}
@@ -59,9 +62,6 @@ const Weather = props => {
           </Button>
           <p className="hide"
 						id="degrees">click to change to {state.degrees === "imperial" ? c : f}</p>
-          <Button onClick={search}>
-            search
-          </Button>
         </Form>
         <Container>
         {state.search && <WeatherReport city={state.city} country={state.country} degrees={state.degrees}/>}
