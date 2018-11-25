@@ -4,16 +4,15 @@ import { format, parse } from 'date-fns';
 import { Button } from './FormStyles';
 import { DailyStyleItem } from './WeatherStyles';
 
-const DailyWeather = props => {
-
-    if (!props.day || props.day.length === 0) return null;
-    let dateDay = format(parse(props.day[0].dt_txt), 'dddd');
-    let dateMonth = format(parse(props.day[0].dt_txt), 'MMM DD');
+const DailyWeather = ({ day, toggle}) => {
+    if (!day || day.length === 0) return null;
+    let dateDay = format(parse(day[0].dt_txt), 'dddd');
+    let dateMonth = format(parse(day[0].dt_txt), 'MMM DD');
     let minTemp = 120;
     let maxTemp = 0;
     let description = [];
     let forecast;
-      props.day.forEach(hour => {
+      day.forEach(hour => {
         if (minTemp > hour.main.temp_min) minTemp = hour.main.temp_min;
         if (maxTemp < hour.main.temp_max) maxTemp = hour.main.temp_max;
         description.push(hour.weather[0].main);
@@ -35,7 +34,7 @@ const DailyWeather = props => {
         <h3>min: { Math.round(minTemp) }˚</h3>
         <h3>max: { Math.round(maxTemp) }˚</h3>
         <Button
-          onClick={props.toggle}>
+          onClick={toggle}>
             details
         </Button>
       </DailyStyleItem>
