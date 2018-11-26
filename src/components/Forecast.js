@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { format } from 'date-fns';
 import DailyWeather from './DailyWeather';
-import Hourly from './Hourly';
 import { DailyStyleContainer, ErrorMessage } from './WeatherStyles';
 
 const Forecast = ({ data }) => {
@@ -35,18 +34,12 @@ const Forecast = ({ data }) => {
      return (
        <div>
          <DailyStyleContainer>
-           <DailyWeather day={day1} toggle={toggle(show.day1, 1)}/>
-           {show.day1 && <Hourly className="details" day={day1} />}
-           <DailyWeather day={day2} toggle={toggle(show.day2, 2)}/>
-           {show.day2 && <Hourly className="details" day={day2} />}
-           <DailyWeather day={day3} toggle={toggle(show.day3, 3)}/>
-           {show.day3 && <Hourly className="details" day={day3} />}
-           <DailyWeather day={day4} toggle={toggle(show.day4, 4)}/>
-           {show.day4 && <Hourly className="details" day={day4} />}
-           <DailyWeather day={day5} toggle={toggle(show.day5, 5)}/>
-           {show.day5 && <Hourly className="details" day={day5} />}
-           <DailyWeather day={day6} toggle={toggle(show.day6, 6)}/>
-           {show.day6 && <Hourly className="details" day={day6} />}
+           <DailyWeather day={day1} show={show.day1} toggle={toggle(show.day1, 1)}/>
+           <DailyWeather day={day2} show={show.day2} toggle={toggle(show.day2, 2)}/>
+           <DailyWeather day={day3} show={show.day3} toggle={toggle(show.day3, 3)}/>
+           <DailyWeather day={day4} show={show.day4} toggle={toggle(show.day4, 4)}/>
+           <DailyWeather day={day5} show={show.day5} toggle={toggle(show.day5, 5)}/>
+           <DailyWeather day={day6} show={show.day6} toggle={toggle(show.day6, 6)}/>
            { uniqueDays.length === 6 || <div id="extra"></div>}
         </DailyStyleContainer>
       </div>

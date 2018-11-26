@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Hourly from './Hourly';
 import PropTypes from "prop-types";
 import { format, parse } from 'date-fns';
 import { Button } from './FormStyles';
 import { DailyStyleItem } from './WeatherStyles';
 
-const DailyWeather = ({ day, toggle}) => {
+const DailyWeather = ({ day, toggle, show }) => {
     if (!day || day.length === 0) return null;
     let dateDay = format(parse(day[0].dt_txt), 'dddd');
     let dateMonth = format(parse(day[0].dt_txt), 'MMM DD');
@@ -27,17 +28,20 @@ const DailyWeather = ({ day, toggle}) => {
       forecast = "https://openweathermap.org/img/w/01d.png";
     };
     return (
-      <DailyStyleItem>
-        <h1>{ dateDay }</h1>
-        <h1>{ dateMonth }</h1>
-        <h3><img src={forecast} alt=""/></h3>
-        <h3>min: { Math.round(minTemp) }˚</h3>
-        <h3>max: { Math.round(maxTemp) }˚</h3>
-        <Button
-          onClick={toggle}>
-            details
-        </Button>
-      </DailyStyleItem>
+      <Fragment>
+        <DailyStyleItem>
+          <h1>{ dateDay }</h1>
+          <h1>{ dateMonth }</h1>
+          <h3><img src={forecast} alt=""/></h3>
+          <h3>min: { Math.round(minTemp) }˚</h3>
+          <h3>max: { Math.round(maxTemp) }˚</h3>
+          <Button
+            onClick={toggle}>
+              {show ? 'close' : 'details'}
+          </Button>
+        </DailyStyleItem>
+        {show && <Hourly day={day} />}
+      </Fragment>
     );
 }
 
