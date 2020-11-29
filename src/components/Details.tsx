@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { HourlyList } from './WeatherStyles';
 import { format } from 'date-fns';
 
