@@ -1,7 +1,29 @@
 import React, { useState } from 'react';
 import { format } from 'date-fns';
 import DailyWeather from './DailyWeather';
-import { DailyStyleContainer, ErrorMessage } from './WeatherStyles';
+import styled from 'styled-components';
+
+const DailyStyleContainer = styled.div`
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-auto-rows: max-content;
+margin: 1rem;
+padding: 1rem;
+grid-gap: 3rem;
+width: -webkit-fill-available;
+grid-auto-flow: dense;
+@media (max-width: 1000px) {
+  grid-template-columns: repeat(2, 1fr);
+}
+`;
+
+const ErrorMessage = styled.p`
+  font-size: 5rem;
+  font-weight: bold;
+  color: blue;
+  margin-left: 50%;
+  margin-top: 5rem;
+`;
 
 interface Props {
   data: {
