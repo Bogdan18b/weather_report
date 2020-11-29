@@ -2,7 +2,7 @@ import React from 'react';
 import SearchWeather from './components/SearchWeather';
 import './reset.css';
 
-const App = () => (
+const App: React.FunctionComponent = () => (
     <SearchWeather />
 );
 
