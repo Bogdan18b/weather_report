@@ -1,17 +1,22 @@
 import React, { Fragment } from 'react';
 import Hourly from './Hourly';
-import PropTypes from "prop-types";
 import { format, parse } from 'date-fns';
 import { Button } from './FormStyles';
 import { DailyStyleItem } from './WeatherStyles';
+import { Hour } from './Details';
 
-const DailyWeather = ({ day, toggle, show }) => {
+interface Props {
+  day: Hour[],
+  toggle: any,
+  show: any
+}
+const DailyWeather: React.FunctionComponent<Props> = ({ day, toggle, show }) => {
     if (!day || day.length === 0) return null;
     let dateDay = format(parse(day[0].dt_txt), 'dddd');
     let dateMonth = format(parse(day[0].dt_txt), 'MMM DD');
     let minTemp = 120;
     let maxTemp = 0;
-    let description = [];
+    let description: any = [];
     let forecast;
       day.forEach(hour => {
         if (minTemp > hour.main.temp_min) minTemp = hour.main.temp_min;
@@ -43,10 +48,6 @@ const DailyWeather = ({ day, toggle, show }) => {
         {show && <Hourly day={day} />}
       </Fragment>
     );
-}
-
-DailyWeather.propTypes = {
-  day: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default DailyWeather;

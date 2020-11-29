@@ -3,7 +3,29 @@ import PropTypes from 'prop-types';
 import { HourlyList } from './WeatherStyles';
 import { format } from 'date-fns';
 
-const Details = ({ hour }) => {
+export interface Hour {
+    dt_txt: string,
+    dt: string,
+    main: {
+      temp: number,
+      temp_min: number,
+      temp_max: number,
+      humidity: number,
+      pressure: number,
+    },
+    wind: {
+      speed: number
+    },
+    weather: {
+      icon: string,
+      description: string,
+      main: string
+    }[]
+}
+interface Props {
+  hour: Hour
+}
+const Details: React.FunctionComponent<Props> = ({ hour }) => {
   if (!hour) return null;
   let sign = hour.weather[0].icon;
   return (
@@ -18,21 +40,6 @@ const Details = ({ hour }) => {
         src={`https://openweathermap.org/img/w/${sign}.png`} alt=""/></li>
     </HourlyList>
   );
-};
-
-Details.propTypes = {
-  hour: PropTypes.shape({
-    dt_txt: PropTypes.string,
-    main: PropTypes.shape({
-      temp: PropTypes.number,
-      humidity: PropTypes.number,
-      pressure: PropTypes.number,
-    }),
-    wind: PropTypes.shape({
-      speed: PropTypes.number
-    }),
-    weather: PropTypes.array
-  })
 };
 
 export default Details;

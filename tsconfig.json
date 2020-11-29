@@ -3,7 +3,7 @@
     "target": "ES2018",
     "module": "esnext",
     "strict": false,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -20,8 +20,7 @@
     "noEmit": true,
     "jsx": "preserve"
   },
+  "typeRoots": ["types", "node_modules/@types"],
   "outDir": "build",
-  "include": [
-    "src"
-  ]
+  "include": ["src", "types"]
 }

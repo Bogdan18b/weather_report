@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -16,7 +15,12 @@ const Subtitle = styled.h1`
 	margin-bottom: 2rem;
 `;
 
-const Header = ({ city, country }) => (
+interface Props {
+  city: string,
+  country: string
+}
+
+const Header: React.FunctionComponent<Props> = ({ city, country }) => (
 	<div>
 		{	city ? <Title>Weather Report for {city + ", " + country}</Title> :
 									 <Title>Weather Report</Title>
@@ -24,10 +28,5 @@ const Header = ({ city, country }) => (
 		<Subtitle>Five days weather forecast</Subtitle>
 	</div>
 	);
-
-Header.propTypes = {
-	city: PropTypes.string,
-	country: PropTypes.string,
-};
 
 export default Header;

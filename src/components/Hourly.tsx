@@ -1,8 +1,11 @@
 import React from 'react';
-import Details from './Details';
+import Details, {Hour} from './Details';
 import { HourlyStyleItem } from './WeatherStyles';
 
-const Hourly = ({ day }) => {
+interface Props {
+  day: Hour[]
+}
+const Hourly: React.FunctionComponent<Props> = ({ day }) => {
   if (!day) return null;
   return (
     <HourlyStyleItem>
