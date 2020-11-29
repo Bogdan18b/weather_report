@@ -3,7 +3,13 @@ import { format } from 'date-fns';
 import DailyWeather from './DailyWeather';
 import { DailyStyleContainer, ErrorMessage } from './WeatherStyles';
 
-const Forecast = ({ data }) => {
+interface Props {
+  data: {
+    list?: any[]
+  }
+}
+
+const Forecast: React.FunctionComponent<Props> = ({ data }) => {
   let [show, setShow] = useState({
     day1: false,
     day2: false,
@@ -14,7 +20,7 @@ const Forecast = ({ data }) => {
   });
   let { list } = data;
   if (!list) return <ErrorMessage>City not found!</ErrorMessage>;
-  let uniqueDays = [];
+  let uniqueDays: any[] = [];
   list.forEach(item => {
     let day = format(item.dt_txt, 'MMM DD');
     if (!uniqueDays.includes(day)) uniqueDays.push(day);
@@ -26,10 +32,11 @@ const Forecast = ({ data }) => {
      let day5 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[4]);
      let day6 = data.list.filter(day => format(day.dt_txt, 'MMM DD') === uniqueDays[5]);
 
-  const toggle = (day, number) => e => {
-    const d = 'day' + number;
+  const toggle = (day: any, index: any) => (e: any) => {
+    // let d = 'day' + index;
     e.preventDefault();
-    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day6: false, [d]: !show[d]})
+    setShow({day1: false, day2: false, day3: false, day4: false, day5: false, day6: false //, [d]: !show[d]
+    })
   }
      return (
        <div>

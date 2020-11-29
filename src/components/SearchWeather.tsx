@@ -4,7 +4,7 @@ import WeatherReport from './WeatherReport';
 import Autocomplete from 'react-google-autocomplete';
 import { Button, Form, Container } from './FormStyles';
 
-const Weather = props => {
+const Weather: React.FunctionComponent = () => {
   let f = "Fahrenheit";
   let c = "Celsius";
   let [state, setState] = useState({
@@ -18,14 +18,14 @@ const Weather = props => {
     search: true
   });
 
-  const changeDegrees = e => {
+  const changeDegrees = (e: any) => {
     e.preventDefault();
     state.degrees === "imperial"
     ? setState({...state, degrees: "metric"})
     : setState({...state, degrees: "imperial"});
   }
 
-  const search = e => {
+  const search = (e: any) => {
     e.preventDefault();
     setState({...state, search: true, city: state.tempCity, country: state.tempCountry, map: state.tempMap});
   }
@@ -40,7 +40,7 @@ const Weather = props => {
           <Header city={state.city} country={state.country}/>
           <Autocomplete
             placeholder="select location"
-              onPlaceSelected={ place => {
+              onPlaceSelected={ (place: any) => {
                 let details = place.formatted_address.split(", ");
                 let last = details.length - 1;
                 setState({...state,
