@@ -52,7 +52,6 @@ const Forecast: React.FunctionComponent<Props> = ({ data }) => {
   });
   const toggle = (index: number) => (e: React.SyntheticEvent) => {
     e.preventDefault();
-    debugger;
     const toggleHourlyForecast = [...SHOW_HOURLY_FORECAST];
     toggleHourlyForecast[index] = !showHourlyForecast[index];
     setShowHourlyForecast(toggleHourlyForecast);
