@@ -39,6 +39,7 @@ export interface HourlyForecastInterface {
 interface Props {
   hourlyForecast: HourlyForecastInterface;
 }
+
 const Details: React.FunctionComponent<Props> = ({ hourlyForecast }) => {
   if (!hourlyForecast) return null;
   let sign = hourlyForecast.weather[0].icon;

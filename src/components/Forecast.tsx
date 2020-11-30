@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { format } from "date-fns";
 import DailyForecast from "./DailyForecast";
 import styled from "styled-components";
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from "constants";
 
 const DailyStyleContainer = styled.div`
   display: grid;
