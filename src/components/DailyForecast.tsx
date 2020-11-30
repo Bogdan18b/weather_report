@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import Hourly from "./Hourly";
+import HourlyForecast from "./HourlyForecast";
 import { format, parse } from "date-fns";
 import { Button } from "./FormStyles";
-import { Hour } from "./Details";
+import { HourlyForecastInterface } from "./Details";
 import styled from "styled-components";
 
 const DailyStyleItem = styled.div`
@@ -27,11 +27,11 @@ const DailyStyleItem = styled.div`
 `;
 
 interface Props {
-  day: Hour[];
+  day: HourlyForecastInterface[];
   toggle: any;
   show: any;
 }
-const DailyWeather: React.FunctionComponent<Props> = ({
+const DailyForecast: React.FunctionComponent<Props> = ({
   day,
   toggle,
   show,
@@ -69,9 +69,9 @@ const DailyWeather: React.FunctionComponent<Props> = ({
         <h3>max: {Math.round(maxTemp)}˚</h3>
         <Button onClick={toggle}>{show ? "close" : "details"}</Button>
       </DailyStyleItem>
-      {show && <Hourly day={day} />}
+      {show && <HourlyForecast day={day} />}
     </Fragment>
   );
 };
 
-export default DailyWeather;
+export default DailyForecast;
