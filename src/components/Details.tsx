@@ -17,7 +17,7 @@ const HourlyList = styled.ul`
     width: 25%;
   }
 `;
-export interface Hour {
+export interface HourlyForecastInterface {
   dt_txt: string;
   dt: string;
   main: {
@@ -37,19 +37,20 @@ export interface Hour {
   }[];
 }
 interface Props {
-  hour: Hour;
+  hourlyForecast: HourlyForecastInterface;
 }
-const Details: React.FunctionComponent<Props> = ({ hour }) => {
-  if (!hour) return null;
-  let sign = hour.weather[0].icon;
+
+const Details: React.FunctionComponent<Props> = ({ hourlyForecast }) => {
+  if (!hourlyForecast) return null;
+  let sign = hourlyForecast.weather[0].icon;
   return (
     <HourlyList>
-      <li>Time: {format(hour.dt_txt, "hh:mm A")}</li>
-      <li>Temperature: {Math.round(hour.main.temp)}˚</li>
-      <li>Humidity: {Math.round(hour.main.humidity)}%</li>
-      <li>Pressure: {Math.round(hour.main.pressure)}&nbsp;hPa</li>
-      <li>Wind: {Math.round(hour.wind.speed)}&nbsp;mph</li>
-      <li>Description: {hour.weather[0].description}</li>
+      <li>Time: {format(hourlyForecast.dt_txt, "hh:mm A")}</li>
+      <li>Temperature: {Math.round(hourlyForecast.main.temp)}˚</li>
+      <li>Humidity: {Math.round(hourlyForecast.main.humidity)}%</li>
+      <li>Pressure: {Math.round(hourlyForecast.main.pressure)}&nbsp;hPa</li>
+      <li>Wind: {Math.round(hourlyForecast.wind.speed)}&nbsp;mph</li>
+      <li>Description: {hourlyForecast.weather[0].description}</li>
       <li>
         <img src={`https://openweathermap.org/img/w/${sign}.png`} alt="" />
       </li>
