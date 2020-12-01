@@ -14,7 +14,7 @@ const WeatherReport: React.FunctionComponent<Props> = ({
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `//api.openweathermap.org/data/2.5/forecast?q=${city}&appid=1ff011665e3637b91147bb172ff57517&units=${unitSystem}`
+        `//api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_GOOGLE_API_KEY}&units=${unitSystem}`
       );
       const data = await response.json();
       setData(data);
