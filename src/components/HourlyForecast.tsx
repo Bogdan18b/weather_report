@@ -1,5 +1,5 @@
 import React from "react";
-import Details, { HourlyForecastInterface } from "./Details";
+import HourlyDetails, { HourlyForecastInterface } from "./HourlyDetails";
 import styled from "styled-components";
 
 const HourlyStyleItem = styled.div`
@@ -15,14 +15,19 @@ const HourlyStyleItem = styled.div`
   grid-gap: 1rem;
 `;
 interface Props {
-  day: HourlyForecastInterface[];
+  dailyForecast: HourlyForecastInterface[];
 }
-const HourlyForecast: React.FunctionComponent<Props> = ({ day }) => {
-  if (!day) return null;
+const HourlyForecast: React.FunctionComponent<Props> = ({ dailyForecast }) => {
+  if (!dailyForecast) return null;
   return (
     <HourlyStyleItem>
-      {day.map((hourlyForecast) => {
-        return <Details key={hourlyForecast.dt} hourlyForecast={hourlyForecast} />;
+      {dailyForecast.map((hourlyForecast) => {
+        return (
+          <HourlyDetails
+            key={hourlyForecast.dt}
+            hourlyForecast={hourlyForecast}
+          />
+        );
       })}
     </HourlyStyleItem>
   );

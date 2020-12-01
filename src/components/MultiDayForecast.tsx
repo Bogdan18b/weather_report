@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { format } from "date-fns";
 import DailyForecast from "./DailyForecast";
 import styled from "styled-components";
+import { HourlyForecastInterface } from "./HourlyDetails";
 
 const DailyStyleContainer = styled.div`
   display: grid;
@@ -27,20 +28,20 @@ const ErrorMessage = styled.p`
 
 interface Props {
   data: {
-    list?: any[];
+    list?: HourlyForecastInterface[];
   };
 }
 
 const SHOW_HOURLY_FORECAST: boolean[] = new Array(6).fill(false);
 
-const Forecast: React.FunctionComponent<Props> = ({ data }) => {
+const MultiDayForecast: React.FunctionComponent<Props> = ({ data }) => {
   let [showHourlyForecast, setShowHourlyForecast] = useState(
     SHOW_HOURLY_FORECAST
   );
   let { list } = data;
   if (!list) return <ErrorMessage>City not found!</ErrorMessage>;
-  let uniqueDays: any[] = [];
-  let days: any[] = [];
+  let uniqueDays: string[] = [];
+  let days: Array<HourlyForecastInterface[]> = [];
   list.forEach((item) => {
     const day = format(item.dt_txt, "MMM DD");
     if (!uniqueDays.includes(day)) uniqueDays.push(day);
@@ -61,8 +62,8 @@ const Forecast: React.FunctionComponent<Props> = ({ data }) => {
       {uniqueDays.map((_, index) => (
         <DailyForecast
           key={index}
-          day={days[index]}
-          show={showHourlyForecast[index]}
+          dailyForecast={days[index]}
+          showHourlyForecast={showHourlyForecast[index]}
           toggle={toggle(index)}
         />
       ))}
@@ -71,4 +72,4 @@ const Forecast: React.FunctionComponent<Props> = ({ data }) => {
   );
 };
 
-export default Forecast;
+export default MultiDayForecast;
