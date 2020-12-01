@@ -40,7 +40,7 @@ interface Props {
   hourlyForecast: HourlyForecastInterface;
 }
 
-const Details: React.FunctionComponent<Props> = ({ hourlyForecast }) => {
+const HourlyDetails: React.FunctionComponent<Props> = ({ hourlyForecast }) => {
   if (!hourlyForecast) return null;
   let sign = hourlyForecast.weather[0].icon;
   return (
@@ -58,4 +58,4 @@ const Details: React.FunctionComponent<Props> = ({ hourlyForecast }) => {
   );
 };
 
-export default Details;
+export default HourlyDetails;

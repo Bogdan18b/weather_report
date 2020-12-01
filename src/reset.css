@@ -1,8 +1,36 @@
-html, body, header, nav, h1, a,
-ul, li, strong, main, button, i,
-section, img, div, h1, h2, h3, h4, h5, h6, p, form,
-fieldset, label, input, textarea,
-select, span, article, footer, time, small {
+html,
+body,
+header,
+nav,
+h1,
+a,
+ul,
+li,
+strong,
+main,
+button,
+i,
+section,
+img,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form,
+fieldset,
+label,
+input,
+textarea,
+select,
+span,
+article,
+footer,
+time,
+small {
   margin: 0;
   padding: 0;
   border: 0;
@@ -14,7 +42,7 @@ select, span, article, footer, time, small {
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 ul {
@@ -33,7 +61,6 @@ input[type="text"],
 input[type="submit"],
 textarea,
 button {
-
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -44,17 +71,11 @@ input[type="submit"] {
 }
 
 body {
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
 }
 
 html {
   font-size: 10px;
-}
-
-#degrees {
-  color: blue;
-  transition: opacity 0.2s ease-in-out;
-  opacity: 1;
 }
 
 .hide {

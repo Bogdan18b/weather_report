@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from "react";
-import Forecast from "./Forecast";
+import MultiDayForecast from "./MultiDayForecast";
 
 interface Props {
   city: string;
-  country: string;
-  degrees: string;
+  unitSystem: string;
 }
 
 const WeatherReport: React.FunctionComponent<Props> = ({
   city,
-  country,
-  degrees,
+  unitSystem,
 }) => {
   const [data, setData] = useState({});
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `//api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=1ff011665e3637b91147bb172ff57517&units=${degrees}`
+        `//api.openweathermap.org/data/2.5/forecast?q=${city}&appid=1ff011665e3637b91147bb172ff57517&units=${unitSystem}`
       );
       const data = await response.json();
       setData(data);
     };
     fetchData();
-  }, [city, country, degrees]);
-  return <Forecast data={data} />;
+  }, [city, unitSystem]);
+  return <MultiDayForecast data={data} />;
 };
 
 export default WeatherReport;

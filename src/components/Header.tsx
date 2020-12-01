@@ -10,11 +10,10 @@ const Title = styled.h1`
 
 interface Props {
   city: string;
-  country: string;
 }
 
-const Header: React.FunctionComponent<Props> = ({ city, country }) => (
-  <Title>5 Days Weather Report for {city + ", " + country}</Title>
+const Header: React.FunctionComponent<Props> = ({ city }) => (
+  <Title>{`Weather Report for ${city}`}</Title>
 );
 
 export default Header;

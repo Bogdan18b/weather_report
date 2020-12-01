@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import HourlyForecast from "./HourlyForecast";
 import { format, parse } from "date-fns";
 import { Button } from "./FormStyles";
-import { HourlyForecastInterface } from "./Details";
+import { HourlyForecastInterface } from "./HourlyDetails";
 import styled from "styled-components";
 
 const DailyStyleItem = styled.div`
@@ -27,23 +27,23 @@ const DailyStyleItem = styled.div`
 `;
 
 interface Props {
-  day: HourlyForecastInterface[];
-  toggle: any;
-  show: any;
+  dailyForecast: HourlyForecastInterface[];
+  toggle: (e: React.SyntheticEvent) => void;
+  showHourlyForecast: boolean;
 }
 const DailyForecast: React.FunctionComponent<Props> = ({
-  day,
+  dailyForecast,
   toggle,
-  show,
+  showHourlyForecast,
 }) => {
-  if (!day || day.length === 0) return null;
-  let dateDay = format(parse(day[0].dt_txt), "dddd");
-  let dateMonth = format(parse(day[0].dt_txt), "MMM DD");
+  if (!dailyForecast || dailyForecast.length === 0) return null;
+  let dateDay = format(parse(dailyForecast[0].dt_txt), "dddd");
+  let dateMonth = format(parse(dailyForecast[0].dt_txt), "MMM DD");
   let minTemp = 120;
   let maxTemp = 0;
-  let description: any = [];
+  let description: string[] = [];
   let forecast;
-  day.forEach((hour) => {
+  dailyForecast.forEach((hour) => {
     if (minTemp > hour.main.temp_min) minTemp = hour.main.temp_min;
     if (maxTemp < hour.main.temp_max) maxTemp = hour.main.temp_max;
     description.push(hour.weather[0].main);
@@ -58,7 +58,7 @@ const DailyForecast: React.FunctionComponent<Props> = ({
     forecast = "https://openweathermap.org/img/w/01d.png";
   }
   return (
-    <Fragment>
+    <>
       <DailyStyleItem>
         <h1>{dateDay}</h1>
         <h1>{dateMonth}</h1>
@@ -67,10 +67,12 @@ const DailyForecast: React.FunctionComponent<Props> = ({
         </h3>
         <h3>min: {Math.round(minTemp)}˚</h3>
         <h3>max: {Math.round(maxTemp)}˚</h3>
-        <Button onClick={toggle}>{show ? "close" : "details"}</Button>
+        <Button onClick={toggle}>
+          {showHourlyForecast ? "close" : "details"}
+        </Button>
       </DailyStyleItem>
-      {show && <HourlyForecast day={day} />}
-    </Fragment>
+      {showHourlyForecast && <HourlyForecast dailyForecast={dailyForecast} />}
+    </>
   );
 };
 
